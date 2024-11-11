@@ -96,7 +96,12 @@ function App() {
 				</Card>
 				<Card className="basis-0 grow">
 					<CardContent className="flex flex-col items-center gap-6">
-						<Button size="lg" className="w-48 h-48 text-4xl rounded-full" onClick={addTap}>
+						<Button
+							size="lg"
+							className="w-48 h-48 text-4xl rounded-full select-none"
+							onMouseDown={addTap}
+							onTouchStart={addTap}
+						>
 							{!!taps.length && (
 								<TempoIcon className={cn('!size-12', taps.length % 2 && '-scale-x-100')} />
 							)}
