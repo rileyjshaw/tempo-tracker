@@ -4,13 +4,16 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import LineGraph from '@/components/line-graph';
 import TempoIcon from '@/assets/tempo.svg?react';
-import cn from 'cnz';
+import { cn, useStickyState } from '@/lib/utils';
 
 function App() {
 	const [taps, setTaps] = useState<number[]>([]);
 	const [tempoHistory, setTempoHistory] = useState<number[]>([]);
-	const [windowSize, setWindowSize] = useState(8);
-	const [referenceTempo, setReferenceTempo] = useState(120);
+	const [stickyWindowSize, setWindowSize] = useStickyState(8, 'window-size');
+	const [stickyReferenceTempo, setReferenceTempo] = useStickyState(120, 'reference-tempo');
+
+	const windowSize = stickyWindowSize ?? 8;
+	const referenceTempo = stickyReferenceTempo ?? 120;
 
 	const addTap = useCallback(() => {
 		const now = Date.now();
