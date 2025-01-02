@@ -99,8 +99,7 @@ function App() {
 						<Button
 							size="lg"
 							className="w-48 h-48 text-4xl rounded-full select-none"
-							onMouseDown={addTap}
-							onTouchStart={addTap}
+							onPointerDown={addTap}
 						>
 							{!!taps.length && (
 								<TempoIcon className={cn('!size-12', taps.length % 2 && '-scale-x-100')} />
