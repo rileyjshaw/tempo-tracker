@@ -49,7 +49,7 @@ function App() {
 		taps.length > 1 ? Math.round((60000 * (taps.length - 1)) / (taps[taps.length - 1] - taps[0])) : undefined;
 
 	return (
-		<div className="flex flex-col p-8 gap-8 min-h-dvh w-dvw">
+		<div className="flex flex-col p-8 gap-8 min-h-dvh w-dvw select-none [-webkit-touch-callout:none]">
 			<div className="flex flex-wrap gap-8">
 				<Card className="grow basis-0">
 					<CardContent className="flex flex-col gap-6">
@@ -96,11 +96,7 @@ function App() {
 				</Card>
 				<Card className="basis-0 grow">
 					<CardContent className="flex flex-col items-center gap-6">
-						<Button
-							size="lg"
-							className="w-48 h-48 text-4xl rounded-full select-none"
-							onPointerDown={addTap}
-						>
+						<Button size="lg" className="w-48 h-48 text-4xl rounded-full" onPointerDown={addTap}>
 							{!!taps.length && (
 								<TempoIcon className={cn('!size-12', taps.length % 2 && '-scale-x-100')} />
 							)}
